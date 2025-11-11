@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { Projects } from "@/components/Projects";
 import { Journal } from "@/components/Journal";
 import { Videos } from "@/components/Videos";
 import { Resume } from "@/components/Resume";
@@ -35,6 +36,7 @@ const Index = () => {
       />
       <Hero onScrollToSection={scrollToSection} />
       <About />
+      <Projects />
       <Journal />
       <Videos />
       <Mentor />

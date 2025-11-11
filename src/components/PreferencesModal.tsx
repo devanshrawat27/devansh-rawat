@@ -3,9 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card } from "@/components/ui/card";
-import { TAGLINES } from "./Hero";
 import { Download, Upload, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -15,7 +13,6 @@ interface PreferencesModalProps {
 }
 
 interface Preferences {
-  taglineIndex: number;
   linkedIn: string;
   github: string;
   mentorLink: string;
@@ -23,7 +20,6 @@ interface Preferences {
 
 export const PreferencesModal = ({ isOpen, onClose }: PreferencesModalProps) => {
   const [prefs, setPrefs] = useState<Preferences>({
-    taglineIndex: 0,
     linkedIn: "",
     github: "",
     mentorLink: "",
@@ -31,16 +27,14 @@ export const PreferencesModal = ({ isOpen, onClose }: PreferencesModalProps) => 
 
   useEffect(() => {
     if (isOpen) {
-      const taglineIndex = parseInt(localStorage.getItem("selectedTagline") || "0");
       const linkedIn = localStorage.getItem("linkedin_link") || "";
       const github = localStorage.getItem("github_link") || "";
       const mentorLink = localStorage.getItem("mentor_profile_link") || "";
-      setPrefs({ taglineIndex, linkedIn, github, mentorLink });
+      setPrefs({ linkedIn, github, mentorLink });
     }
   }, [isOpen]);
 
   const handleSave = () => {
-    localStorage.setItem("selectedTagline", prefs.taglineIndex.toString());
     localStorage.setItem("linkedin_link", prefs.linkedIn);
     localStorage.setItem("github_link", prefs.github);
     localStorage.setItem("mentor_profile_link", prefs.mentorLink);
@@ -128,26 +122,6 @@ export const PreferencesModal = ({ isOpen, onClose }: PreferencesModalProps) => 
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {/* Tagline Selection */}
-          <div>
-            <Label className="text-base font-semibold mb-3 block">Select Your Tagline</Label>
-            <RadioGroup
-              value={prefs.taglineIndex.toString()}
-              onValueChange={(value) => setPrefs({ ...prefs, taglineIndex: parseInt(value) })}
-              className="space-y-3"
-            >
-              {TAGLINES.map((tagline, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <RadioGroupItem value={index.toString()} id={`tagline-${index}`} className="mt-1" />
-                  <Label htmlFor={`tagline-${index}`} className="cursor-pointer flex-1">
-                    <div className="font-medium text-foreground">{tagline.text}</div>
-                    <div className="text-sm text-muted-foreground">{tagline.reason}</div>
-                  </Label>
-                </div>
-              ))}
-            </RadioGroup>
-          </div>
-
           {/* Contact Links */}
           <div className="space-y-4">
             <Label className="text-base font-semibold">Contact & Profile Links</Label>

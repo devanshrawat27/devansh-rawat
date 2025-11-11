@@ -5,6 +5,7 @@ import { Menu, X, Settings } from "lucide-react";
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
   { id: 'journal', label: 'Journal' },
   { id: 'videos', label: 'Videos' },
   { id: 'mentor', label: 'Meet My Mentor' },
