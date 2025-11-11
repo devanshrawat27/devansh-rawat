@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Link as LinkIcon, X, Check } from "lucide-react";
-import mentorImg from "@/assets/mentor-placeholder.jpg";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Mail, Link as LinkIcon, X, Check, ChevronDown, Heart } from "lucide-react";
+import mentorImg from "@/assets/mentor-anubha-pundir.webp";
 
 export const Mentor = () => {
   const [mentorLink, setMentorLink] = useState("");
   const [isEditingLink, setIsEditingLink] = useState(false);
   const [tempLink, setTempLink] = useState("");
+  const [isMessageOpen, setIsMessageOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("mentor_profile_link");
@@ -30,10 +32,12 @@ export const Mentor = () => {
   };
 
   return (
-    <section id="mentor" className="py-20 bg-gradient-to-br from-background via-accent/5 to-background relative overflow-hidden">
-      {/* Peaceful Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--accent)/0.08),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(var(--primary)/0.05),transparent_50%)]" />
+    <section id="mentor" className="py-20 bg-gradient-to-br from-amber-50/30 via-background to-amber-50/20 dark:from-background dark:via-amber-950/10 dark:to-background relative overflow-hidden">
+      {/* Peaceful Golden Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(45_100%_70%/0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(40_100%_85%/0.06),transparent_50%)]" />
+      <div className="absolute top-20 right-20 w-64 h-64 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-yellow-200/20 dark:bg-yellow-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
@@ -42,27 +46,27 @@ export const Mentor = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
               Meet My Mentor
             </h2>
-            <p className="text-muted-foreground text-lg mb-4">
+            <p className="text-amber-800 dark:text-amber-200 text-lg mb-4 font-medium">
               A Guide to Professional Excellence & Inner Peace
             </p>
-            <div className="w-32 h-1 bg-gradient-to-r from-accent/50 via-primary to-accent/50 mx-auto rounded-full shadow-[0_0_15px_hsl(var(--accent)/0.3)]" />
+            <div className="w-32 h-1 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 mx-auto rounded-full shadow-[0_0_20px_hsl(45_100%_60%/0.4)]" />
           </div>
 
           {/* Mentor Card */}
-          <Card className="overflow-hidden shadow-[0_8px_30px_hsl(var(--primary)/0.12)] border-accent/20 bg-card/80 backdrop-blur-sm hover:shadow-[0_8px_40px_hsl(var(--accent)/0.2)] transition-all duration-700">
+          <Card className="overflow-hidden shadow-[0_8px_30px_hsl(45_80%_60%/0.15)] border-amber-200/40 dark:border-amber-800/40 bg-white/90 dark:bg-card/90 backdrop-blur-sm hover:shadow-[0_8px_40px_hsl(45_90%_65%/0.25)] transition-all duration-700">
             <div className="md:flex">
               {/* Image Side */}
-              <div className="md:w-2/5 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 relative overflow-hidden">
+              <div className="md:w-2/5 bg-gradient-to-br from-amber-100/40 via-yellow-50/30 to-amber-50/40 dark:from-amber-950/20 dark:via-yellow-950/10 dark:to-amber-900/20 relative overflow-hidden">
                 <div className="aspect-[4/5] relative">
                   <img 
                     src={mentorImg} 
-                    alt="Dr. Anubha Pundir - Associate Professor at GEHU" 
+                    alt="Dr. Anubha Pundir - Assistant Professor at GEHU" 
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-50/60 dark:from-background/60 via-transparent to-transparent" />
                   
-                  {/* Peaceful Glow Effect */}
-                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-t from-accent/20 to-transparent" />
+                  {/* Peaceful Golden Glow Effect */}
+                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-t from-amber-300/20 to-transparent" />
                 </div>
               </div>
 
@@ -71,8 +75,8 @@ export const Mentor = () => {
                 <h3 className="text-3xl font-bold text-foreground mb-1">
                   Dr. Anubha Pundir
                 </h3>
-                <p className="text-primary font-semibold text-lg mb-2">
-                  Associate Professor
+                <p className="text-amber-700 dark:text-amber-300 font-semibold text-lg mb-2">
+                  Assistant Professor
                 </p>
                 <p className="text-muted-foreground mb-6 text-sm">
                   Practical for Employability Skill Enhancement (PESE)
@@ -80,35 +84,33 @@ export const Mentor = () => {
 
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Dr. Anubha Pundir is an accomplished academic and mindfulness practitioner at Graphic Era Hill University. 
-                    With a Ph.D. in Environmental Studies and ongoing research in Vedic Yoga techniques, she brings a unique 
-                    holistic approach to professional development education. Her academic credentials span multiple Masters 
-                    degrees in International Human Resource Management (Australia), Environmental Studies, Yoga, and Human Rights.
+                    Dr. Anubha Pundir is not just a teacher — she is a true guide, motivator, and source of inspiration. 
+                    Her way of teaching goes far beyond textbooks and assignments. Every lecture with her feels like a 
+                    step toward personal growth, confidence, and emotional balance.
                   </p>
                   
                   <p>
-                    Her teaching philosophy transcends traditional academics — she nurtures not just professional skills but 
-                    also emotional intelligence, mindfulness, and self-awareness. Her research areas include Yog-IKS 
-                    (Vedic Techniques & Psychology), HR Management, and Leadership Development.
+                    What truly makes her sessions special is the <span className="text-amber-700 dark:text-amber-300 font-semibold">15-minute meditation and therapy practice</span> she 
+                    conducts at the end of each class. In those calm moments, she shares beautiful mantras to succeed in life, 
+                    encouraging us to focus on peace, gratitude, and determination.
                   </p>
 
-                  <div className="bg-accent/5 p-5 rounded-xl border-l-4 border-accent/40 my-5 shadow-sm">
+                  <div className="bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 p-5 rounded-xl border-l-4 border-amber-400 dark:border-amber-600 my-5 shadow-[0_4px_20px_hsl(45_80%_60%/0.15)]">
                     <p className="text-foreground font-medium mb-2 flex items-center gap-2">
-                      <span className="text-accent text-xl">✦</span>
-                      A Practice of Peace & Focus
+                      <span className="text-amber-500 text-xl">✦</span>
+                      Mantras for Success & Inner Peace
                     </p>
-                    <p className="text-sm">
-                      At the end of every lecture, Dr. Pundir conducts a 15-minute meditation or mental relaxation therapy 
-                      session. This mindful practice helps students release stress, enhance concentration, and build confidence — 
-                      qualities essential for both professional success and personal well-being.
+                    <p className="text-sm text-muted-foreground">
+                      These sessions are more than just relaxation — they are a reflection of her belief that success is 
+                      not only built by skills, but also by self-awareness and inner calm. She teaches us that mindfulness 
+                      and discipline are the real foundations of success.
                     </p>
                   </div>
 
                   <p>
-                    Honored with numerous prestigious awards including the Rex Karamveer Platinum Chakra Award (UN, 2024), 
-                    Dr. Sarvepalli Radhakrishnan Award (2024), and Asia's 1000 Women Innovator Award (2021), she exemplifies 
-                    excellence in education and social contribution. Her guidance extends beyond syllabi — she cultivates 
-                    discipline, inner calm, and purposeful growth in every student.
+                    Through her guidance, I have learned how to stay composed under pressure, trust my journey, and believe 
+                    in steady progress. She has taught me that <span className="text-amber-700 dark:text-amber-300 font-medium">peace of mind is the real power</span> behind 
+                    every achievement.
                   </p>
                 </div>
 
@@ -118,21 +120,21 @@ export const Mentor = () => {
                     href="https://gehu.ac.in/dehradun/pdp/faculty/dr-anubha-pundir/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300 text-sm font-medium group"
+                    className="flex items-center gap-2 text-amber-700 dark:text-amber-300 hover:text-amber-600 dark:hover:text-amber-200 transition-colors duration-300 text-sm font-medium group"
                   >
                     <LinkIcon size={16} className="group-hover:scale-110 transition-transform" />
-                    <span className="border-b border-primary/30 group-hover:border-accent">
+                    <span className="border-b border-amber-700/30 dark:border-amber-300/30 group-hover:border-amber-600 dark:group-hover:border-amber-200">
                       View Official GEHU Profile
                     </span>
                   </a>
                   
                   {mentorLink ? (
-                    <div className="flex items-center justify-between bg-accent/5 p-3 rounded-lg border border-accent/20 hover:border-accent/40 transition-colors duration-300">
+                    <div className="flex items-center justify-between bg-amber-50/50 dark:bg-amber-950/20 p-3 rounded-lg border border-amber-200/40 dark:border-amber-800/40 hover:border-amber-300 dark:hover:border-amber-700 transition-colors duration-300">
                       <a
                         href={mentorLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-accent transition-colors flex items-center space-x-2"
+                        className="text-amber-700 dark:text-amber-300 hover:text-amber-600 dark:hover:text-amber-200 transition-colors flex items-center space-x-2"
                       >
                         <Mail size={16} />
                         <span className="text-sm">Personal Meeting Link</span>
@@ -172,7 +174,7 @@ export const Mentor = () => {
                     <Button
                       variant="outline"
                       onClick={() => setIsEditingLink(true)}
-                      className="w-full text-sm hover:bg-accent/10 hover:border-accent/40 transition-all duration-300"
+                      className="w-full text-sm hover:bg-amber-50 dark:hover:bg-amber-950/30 hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
                     >
                       <Mail size={16} className="mr-2" />
                       Add Personal Meeting Link
@@ -180,19 +182,45 @@ export const Mentor = () => {
                   )}
                 </div>
 
-                {/* Gratitude Message */}
-                <div className="mt-8 p-6 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 rounded-xl border border-accent/20 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-                  
-                  <p className="text-foreground italic leading-relaxed relative z-10 text-sm md:text-base">
-                    "I am profoundly grateful to Dr. Anubha Pundir for her guidance, patience, and dedication. 
-                    Her mentorship transcends academics — she has nurtured my professional competencies while 
-                    teaching me mindfulness, emotional balance, and the art of purposeful growth. The meditation 
-                    sessions at the end of each class have been transformative, helping me develop focus, resilience, 
-                    and inner confidence."
-                  </p>
-                  <p className="text-right text-muted-foreground mt-4 font-medium relative z-10">— Devansh Rawat</p>
+                {/* Hidden Message for Ma'am */}
+                <div className="mt-8">
+                  <Collapsible open={isMessageOpen} onOpenChange={setIsMessageOpen}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-100 dark:from-amber-950/40 dark:via-yellow-950/40 dark:to-amber-950/40 rounded-xl border border-amber-300/50 dark:border-amber-700/50 hover:border-amber-400 dark:hover:border-amber-600 transition-all duration-300 cursor-pointer group shadow-[0_2px_15px_hsl(45_80%_60%/0.15)]">
+                        <Heart className="text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" size={20} />
+                        <span className="text-amber-800 dark:text-amber-200 font-semibold">
+                          💌 Hidden Message for Ma'am (Click to Reveal)
+                        </span>
+                        <ChevronDown 
+                          className={`text-amber-600 dark:text-amber-400 transition-transform duration-300 ${isMessageOpen ? 'rotate-180' : ''}`} 
+                          size={20} 
+                        />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="mt-4">
+                      <div className="p-6 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50 dark:from-amber-950/30 dark:via-yellow-950/30 dark:to-amber-950/30 rounded-xl border border-amber-300/60 dark:border-amber-700/60 shadow-[0_4px_25px_hsl(45_80%_60%/0.2)] relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-40 h-40 bg-amber-300/20 dark:bg-amber-400/10 rounded-full blur-3xl animate-pulse" />
+                        <div className="absolute bottom-0 left-0 w-40 h-40 bg-yellow-300/20 dark:bg-yellow-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+                        
+                        <p className="text-amber-900 dark:text-amber-100 font-semibold mb-3 relative z-10">
+                          Dear Ma'am,
+                        </p>
+                        <div className="space-y-3 text-foreground leading-relaxed relative z-10">
+                          <p>
+                            Thank you for being more than a teacher — for being a mentor who guided us to believe in ourselves.
+                            Your meditation sessions and success mantras have taught me that peace of mind is the real power behind every achievement.
+                          </p>
+                          <p>
+                            I've learned from you that success is not just about skill, but also about self-awareness and gratitude.
+                          </p>
+                        </div>
+                        <p className="text-right text-amber-800 dark:text-amber-300 mt-4 font-semibold relative z-10">
+                          With respect and gratitude,<br />
+                          — Devansh Rawat
+                        </p>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
                 </div>
               </div>
             </div>
