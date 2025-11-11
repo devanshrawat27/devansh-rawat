@@ -43,6 +43,9 @@ const projects = [
 ];
 
 export const Projects = () => {
+  console.log("Projects component is rendering");
+  console.log("Projects data:", projects);
+  
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
