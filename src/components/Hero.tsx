@@ -117,18 +117,28 @@ export const Hero = ({ onScrollToSection }: HeroProps) => {
               </p>
             </div>
 
-            {/* Right side - Photo */}
+            {/* Right side - Profile Image */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/40 to-yellow-300/40 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-                <div className="relative overflow-hidden rounded-2xl border-4 border-white/20 shadow-2xl hover:shadow-accent/50 transition-all duration-500 group-hover:scale-105">
+              <div className="relative group max-w-md lg:max-w-sm">
+                {/* Layered 3D background gradient glow */}
+                <div className="absolute -inset-8 bg-gradient-to-br from-cyan-400/20 via-accent/20 to-yellow-300/20 rounded-3xl blur-3xl group-hover:blur-[50px] transition-all duration-700 animate-pulse" />
+                <div className="absolute -inset-4 bg-gradient-to-tr from-accent/30 to-primary/30 rounded-2xl blur-2xl group-hover:scale-110 transition-all duration-700" />
+                
+                {/* Image container with soft frame */}
+                <div className="relative z-10 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] ring-2 ring-white/20 group-hover:shadow-[0_25px_80px_rgba(255,215,0,0.4)] group-hover:ring-accent/30 transition-all duration-700 group-hover:scale-[1.02] backdrop-blur-sm">
                   <img 
                     src={profileImg} 
-                    alt="Devansh Rawat - Professional Photo" 
-                    className="w-full h-auto max-w-md object-cover"
+                    alt="Devansh Rawat - Computer Science Student" 
+                    className="w-full h-auto object-cover relative z-10"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+                  
+                  {/* Subtle overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-cyan-300/10 opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
                 </div>
+
+                {/* Floating accent elements for 3D effect */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-cyan-400/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
               </div>
             </div>
           </div>
