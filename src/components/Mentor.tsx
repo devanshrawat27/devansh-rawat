@@ -53,25 +53,32 @@ export const Mentor = () => {
           </div>
 
           {/* Mentor Card */}
-          <Card className="overflow-hidden shadow-[0_8px_30px_hsl(45_80%_60%/0.15)] border-amber-200/40 dark:border-amber-800/40 bg-white/90 dark:bg-card/90 backdrop-blur-sm hover:shadow-[0_8px_40px_hsl(45_90%_65%/0.25)] transition-all duration-700">
+          <Card className="overflow-hidden shadow-[0_8px_30px_hsl(45_80%_60%/0.15)] border-amber-200/40 dark:border-amber-800/40 bg-white/90 dark:bg-card/90 backdrop-blur-sm hover:shadow-[0_8px_40px_hsl(45_90%_65%/0.25)] transition-all duration-700 animate-fade-in-up">
             <div className="md:flex">
-              {/* Image Side */}
-              <div className="md:w-2/5 bg-gradient-to-br from-amber-100/40 via-yellow-50/30 to-amber-50/40 dark:from-amber-950/20 dark:via-yellow-950/10 dark:to-amber-900/20 relative overflow-hidden">
-                <div className="aspect-[4/5] relative">
-                  <img 
-                    src={mentorImg} 
-                    alt="Dr. Anubha Pundir - Assistant Professor at GEHU" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-50/60 dark:from-background/60 via-transparent to-transparent" />
-                  
-                  {/* Peaceful Golden Glow Effect */}
-                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-t from-amber-300/20 to-transparent" />
+              {/* Image Side with Golden Divider */}
+              <div className="md:w-[30%] bg-gradient-to-br from-amber-100/40 via-yellow-50/30 to-amber-50/40 dark:from-amber-950/20 dark:via-yellow-950/10 dark:to-amber-900/20 relative">
+                <div className="p-6 md:p-8 flex items-center justify-center">
+                  <div className="relative max-w-[280px] w-full">
+                    <img 
+                      src={mentorImg} 
+                      alt="Dr. Anubha Pundir - Assistant Professor at GEHU" 
+                      className="w-full h-auto object-cover rounded-[22px] shadow-[0_12px_40px_hsl(45_70%_50%/0.3)] dark:shadow-[0_12px_40px_hsl(45_70%_30%/0.4)] relative z-10"
+                    />
+                    
+                    {/* Warm gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-amber-50/30 via-transparent to-amber-100/40 dark:from-amber-900/20 dark:to-amber-800/30 rounded-[22px] pointer-events-none" />
+                    
+                    {/* Golden glow effect on hover */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-amber-300/40 to-yellow-200/40 dark:from-amber-600/30 dark:to-yellow-500/30 rounded-[26px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
+                  </div>
                 </div>
+
+                {/* Golden Vertical Divider Line */}
+                <div className="hidden md:block absolute right-0 top-[10%] bottom-[10%] w-[2px] bg-gradient-to-b from-transparent via-amber-400/60 to-transparent" />
               </div>
 
               {/* Content Side */}
-              <div className="md:w-3/5 p-8 md:p-10">
+              <div className="md:w-[70%] p-8 md:p-10 md:pl-12">
                 <h3 className="text-3xl font-bold text-foreground mb-1">
                   Dr. Anubha Pundir
                 </h3>
