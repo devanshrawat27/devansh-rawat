@@ -7,6 +7,7 @@ import { Journal } from "@/components/Journal";
 import { Videos } from "@/components/Videos";
 import { Resume } from "@/components/Resume";
 import { Mentor } from "@/components/Mentor";
+import { Skills } from "@/components/Skills";
 import { FinalReflection } from "@/components/FinalReflection";
 import { Footer } from "@/components/Footer";
 import { PreferencesModal } from "@/components/PreferencesModal";
@@ -41,6 +42,7 @@ const Index = () => {
       <Videos />
       <Mentor />
       <Resume />
+      <Skills />
       <FinalReflection />
       <Footer />
       <PreferencesModal 
