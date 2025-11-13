@@ -33,17 +33,33 @@ export const About = () => {
           </div>
 
           {/* Bio */}
-          <Card className="p-8 mb-12 shadow-lg">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              I am <span className="font-semibold text-foreground">Devansh Rawat</span>, a Computer Science & Engineering student at Graphic Era Hill University, 
-              passionate about leveraging technology to solve real-world problems. Through the Employability Skill Enhancement 
-              course under the expert guidance of <span className="font-semibold text-foreground">Dr. Anubha Pundir</span>, I embarked on a transformative 
-              journey that sharpened not only my technical capabilities but also my communication, analytical thinking, 
-              and professional presence. This portfolio documents my progression through nine intensive sessions covering 
-              career planning, resume optimization, psychometric assessments (TAT, SRT), group discussions, creative writing, 
-              and structured essay composition. Each experience has been a stepping stone toward becoming a well-rounded, 
-              industry-ready professional prepared to contribute meaningfully in dynamic work environments.
-            </p>
+          <Card className="p-8 mb-12 shadow-lg border-primary/10 bg-gradient-to-br from-card to-card/50">
+            <div className="space-y-4">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Hi, I'm <span className="font-semibold text-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Devansh Rawat</span>, a B.Tech Computer Science & Engineering student at Graphic Era Hill University, Dehradun.
+              </p>
+              
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                I'm someone who loves learning new things and improving a little every day. Over time, I've realized that growth isn't just about academics — it's also about discipline, patience, and how we handle challenges.
+              </p>
+              
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                I believe in doing everything with sincerity, whether it's a small task or a big goal. I like to stay curious, try new ideas, and keep learning from experiences — both successes and mistakes.
+              </p>
+              
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                I enjoy working with people, sharing thoughts, and understanding different perspectives. For me, confidence and calmness are as important as knowledge.
+              </p>
+              
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                My goal is simple — to keep learning, stay humble, and become someone who adds value wherever I go.
+              </p>
+              
+              <p className="text-lg font-medium text-foreground italic mt-6 flex items-center justify-center gap-2">
+                <span className="text-primary">🌿</span>
+                Learning. Growing. Becoming better — one step at a time.
+              </p>
+            </div>
           </Card>
 
           {/* Highlight Cards */}
