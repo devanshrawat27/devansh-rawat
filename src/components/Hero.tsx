@@ -66,21 +66,13 @@ export const Hero = ({ onScrollToSection }: HeroProps) => {
                 >
                   About Me
                 </Button>
-                <Button 
-                  size="lg"
-                  onClick={() => onScrollToSection('projects')}
-                  className="bg-white text-primary hover:bg-white/90 hover:shadow-lg transition-all duration-300"
-                >
-                  View Projects
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  onClick={() => onScrollToSection('footer')}
-                  className="border-2 border-white text-white hover:bg-white/10 hover:shadow-lg transition-all duration-300"
-                >
-                  Contact
-                </Button>
+              <Button 
+                size="lg"
+                onClick={() => onScrollToSection('projects')}
+                className="bg-white text-primary hover:bg-white/90 hover:shadow-lg transition-all duration-300"
+              >
+                View Projects
+              </Button>
               </div>
 
               {/* Social Icons */}

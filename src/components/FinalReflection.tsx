@@ -1,9 +1,15 @@
-import { Card } from "@/components/ui/card";
-import { Award, TrendingUp, Target } from "lucide-react";
+import { Lightbulb, Book, Mic, Brain } from "lucide-react";
 
 export const FinalReflection = () => {
+  const learningMilestones = [
+    { icon: Lightbulb, label: "Confidence", color: "from-yellow-400 to-orange-500" },
+    { icon: Book, label: "Communication", color: "from-blue-400 to-cyan-500" },
+    { icon: Mic, label: "Teamwork", color: "from-purple-400 to-pink-500" },
+    { icon: Brain, label: "Self-Reflection", color: "from-green-400 to-emerald-500" },
+  ];
+
   return (
-    <section id="reflection" className="py-20 bg-background">
+    <section id="reflection" className="py-20 bg-gradient-to-br from-[#f5f1e8] via-white to-[#fef9f1]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
@@ -11,122 +17,86 @@ export const FinalReflection = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Final Reflection
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
-            <p className="text-muted-foreground italic">
-              Synthesizing Growth, Celebrating Progress, Planning Forward
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8" />
+          </div>
+
+          {/* Main Reflection - Short and Human */}
+          <div className="text-center mb-16 space-y-4 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Looking back at this journey, I've realized how much I've grown — not just in skills, but in mindset.
+            </p>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Each session taught me something new about confidence, clarity, and communication.
+            </p>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              I learned to express myself better, think calmly, and approach every challenge with a positive attitude.
+            </p>
+            <p className="text-lg md:text-xl text-foreground font-semibold leading-relaxed">
+              This experience wasn't just about learning — it was about becoming a better version of myself.
             </p>
           </div>
 
-          {/* Main Reflection */}
-          <Card className="p-8 mb-8 shadow-lg">
-            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-              <p>
-                As I reflect on this transformative journey through the Employability Skill Enhancement course, 
-                I am struck by the profound evolution I've undergone—not just as a student of computer science, 
-                but as a communicator, critical thinker, and emerging professional. When I began this course, 
-                I viewed soft skills as secondary to technical prowess. <strong>I was wrong.</strong>
-              </p>
-
-              <p>
-                Through nine intensive sessions, I discovered that the ability to articulate ideas clearly, 
-                think critically under pressure, collaborate effectively, and reflect honestly on my performance 
-                are not just complementary skills—they are <em>foundational</em> to meaningful career success. 
-                The psychometric assessments (TAT, SRT) taught me to think on my feet while maintaining composure. 
-                Group discussions revealed that listening is as powerful as speaking, and that leadership often 
-                means empowering others rather than dominating conversations. Resume writing sessions transformed 
-                my self-presentation from passive to compelling, and essay exercises honed my ability to structure 
-                arguments logically and persuasively.
-              </p>
-
-              <p>
-                <strong className="text-foreground">Measurable Outcomes:</strong> I've documented my progress through this 
-                portfolio, but the real evidence lies in my changed approach to challenges. I now enter interviews 
-                with confidence, having rehearsed structured responses through SRT. I approach team projects as 
-                opportunities for collaborative problem-solving, informed by GD experiences. Most importantly, 
-                I've internalized the habit of reflective practice—regularly assessing what worked, what didn't, 
-                and how to improve.
-              </p>
-
-              <p>
-                Dr. Anubha Pundir's mentorship has been instrumental in this transformation. Her constructive 
-                feedback, encouragement during setbacks, and high expectations pushed me beyond my comfort zone 
-                in ways I'm grateful for. The safe yet challenging learning environment she cultivated allowed 
-                me to experiment, fail, learn, and ultimately succeed.
-              </p>
+          {/* Learning Journey Map */}
+          <div className="mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-8">
+              🌱 My Learning Journey — From Awareness to Growth
+            </h3>
+            
+            {/* Horizontal Timeline */}
+            <div className="relative">
+              {/* Connection Line */}
+              <div className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary hidden md:block" 
+                   style={{ 
+                     top: '4rem',
+                     left: '10%',
+                     right: '10%',
+                     boxShadow: '0 0 20px rgba(245, 182, 66, 0.5)'
+                   }} 
+              />
+              
+              {/* Milestones Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 relative z-10">
+                {learningMilestones.map((milestone, index) => {
+                  const Icon = milestone.icon;
+                  return (
+                    <div 
+                      key={index}
+                      className="flex flex-col items-center text-center group animate-fade-in"
+                      style={{ animationDelay: `${index * 150}ms` }}
+                    >
+                      {/* Icon Circle */}
+                      <div className={`
+                        w-20 h-20 md:w-24 md:h-24 rounded-full 
+                        bg-gradient-to-br ${milestone.color}
+                        flex items-center justify-center
+                        shadow-lg
+                        transform transition-all duration-300
+                        group-hover:scale-110 group-hover:shadow-2xl
+                        mb-4
+                      `}
+                      style={{
+                        boxShadow: '0 8px 25px rgba(245, 182, 66, 0.3)'
+                      }}
+                      >
+                        <Icon className="text-white" size={32} strokeWidth={2.5} />
+                      </div>
+                      
+                      {/* Label */}
+                      <p className="text-sm md:text-base font-semibold text-foreground">
+                        {milestone.label}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </Card>
-
-          {/* Key Achievements Grid */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Award className="text-white" size={32} />
-              </div>
-              <h3 className="font-bold text-foreground mb-2">Skills Mastered</h3>
-              <p className="text-2xl font-bold text-primary mb-1">12+</p>
-              <p className="text-sm text-muted-foreground">
-                Professional competencies acquired across communication, writing, and assessment
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                <TrendingUp className="text-white" size={32} />
-              </div>
-              <h3 className="font-bold text-foreground mb-2">Confidence Growth</h3>
-              <p className="text-2xl font-bold text-accent mb-1">150%</p>
-              <p className="text-sm text-muted-foreground">
-                Self-reported increase in public speaking and presentation confidence
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Target className="text-white" size={32} />
-              </div>
-              <h3 className="font-bold text-foreground mb-2">Career Readiness</h3>
-              <p className="text-2xl font-bold text-primary mb-1">High</p>
-              <p className="text-sm text-muted-foreground">
-                Ready for internships and entry-level roles with industry-aligned skills
-              </p>
-            </Card>
           </div>
 
-          {/* Next Steps */}
-          <Card className="p-8 bg-gradient-to-br from-primary/5 to-accent/5">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Next Steps & Commitments</h3>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex items-start">
-                <span className="text-primary font-bold mr-3">1.</span>
-                <span><strong>Apply Learning:</strong> Actively seek internship opportunities where I can apply both technical and employability skills, targeting roles that value communication and collaboration.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary font-bold mr-3">2.</span>
-                <span><strong>Continuous Practice:</strong> Participate in weekly mock GDs and presentations with peers to maintain and refine my communication skills.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary font-bold mr-3">3.</span>
-                <span><strong>Mentor Others:</strong> Share my learnings with juniors, conducting workshops on resume writing and group discussions to reinforce my knowledge while helping others.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary font-bold mr-3">4.</span>
-                <span><strong>Reflective Journaling:</strong> Continue documenting my professional experiences, challenges, and learnings to maintain the habit of self-assessment and growth tracking.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary font-bold mr-3">5.</span>
-                <span><strong>Advanced Certifications:</strong> Pursue additional certifications in public speaking, leadership, and project management to complement my technical credentials.</span>
-              </li>
-            </ul>
-          </Card>
-
-          {/* Closing Quote */}
-          <div className="mt-8 text-center">
-            <blockquote className="text-xl italic text-muted-foreground border-l-4 border-primary pl-6 py-4">
-              "The journey of employability skill enhancement isn't a destination—it's a continuous process 
-              of learning, adapting, and growing. I'm no longer the student who walked into that first session; 
-              I'm a professional-in-training, equipped, confident, and ready to make my mark."
-            </blockquote>
-            <p className="text-foreground font-semibold mt-4">— Devansh Rawat</p>
+          {/* Optional: Add a subtle closing quote or note */}
+          <div className="text-center mt-12 p-6 bg-white/60 backdrop-blur-sm rounded-lg border border-primary/20">
+            <p className="text-muted-foreground italic">
+              "Growth happens when you step out of your comfort zone and embrace the journey with an open mind."
+            </p>
           </div>
         </div>
       </div>

@@ -41,7 +41,7 @@ export const Footer = () => {
               <Github size={24} />
             </a>
             <a
-              href="mailto:devansh.rawat@example.com"
+              href="mailto:devanshdevr@gmail.com"
               className="hover:text-accent-foreground transition-colors"
               aria-label="Email"
             >
