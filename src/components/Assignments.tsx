@@ -163,33 +163,49 @@ export const Assignments = () => {
               We selected a real company, researched its background, culture, and business model, and created a presentation based on our findings.
             </p>
             
-            <Card className="p-8 max-w-md mx-auto border-2 border-dashed border-border hover:border-accent transition-all duration-300">
+            <Card className={`p-8 max-w-md mx-auto border-2 transition-all duration-300 ${
+              uploadedFile ? 'border-primary bg-primary/5' : 'border-dashed border-border hover:border-accent'
+            }`}>
               <div className="flex flex-col items-center justify-center">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center mb-4">
+                <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4 ${
+                  uploadedFile 
+                    ? 'bg-gradient-to-br from-primary to-primary/70' 
+                    : 'bg-gradient-to-br from-accent to-accent/70'
+                }`}>
                   <Briefcase className="text-white" size={40} />
                 </div>
                 <p className="text-lg font-semibold text-foreground mb-2">
                   {uploadedFile ? uploadedFile.name : "Upload PPT"}
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  {uploadedFile ? "File ready to submit" : "Click to upload your presentation"}
+                  {uploadedFile ? "✓ Assignment locked - Read only" : "Click to upload your presentation"}
                 </p>
                 
-                <label htmlFor="ppt-upload" className="cursor-pointer">
-                  <Button variant="default" className="relative" asChild>
-                    <span>
-                      <Upload className="mr-2" size={16} />
-                      {uploadedFile ? "Change File" : "Choose File"}
-                    </span>
+                {!uploadedFile ? (
+                  <label htmlFor="ppt-upload" className="cursor-pointer">
+                    <Button variant="default" className="relative" asChild>
+                      <span>
+                        <Upload className="mr-2" size={16} />
+                        Choose File
+                      </span>
+                    </Button>
+                    <Input
+                      id="ppt-upload"
+                      type="file"
+                      accept=".ppt,.pptx,.pdf"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                  </label>
+                ) : (
+                  <Button 
+                    variant="outline" 
+                    disabled
+                    className="opacity-75 cursor-not-allowed"
+                  >
+                    Upload Locked
                   </Button>
-                  <Input
-                    id="ppt-upload"
-                    type="file"
-                    accept=".ppt,.pptx,.pdf"
-                    onChange={handleFileChange}
-                    className="hidden"
-                  />
-                </label>
+                )}
               </div>
             </Card>
           </div>
