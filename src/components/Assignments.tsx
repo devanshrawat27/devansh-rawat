@@ -178,7 +178,7 @@ export const Assignments = () => {
                   {uploadedFile ? uploadedFile.name : "Upload PPT"}
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
-                  {uploadedFile ? "✓ Assignment locked - Read only" : "Click to upload your presentation"}
+                  {uploadedFile ? "✓ Assignment submitted successfully" : "Click to upload your presentation"}
                 </p>
                 
                 {!uploadedFile ? (
@@ -198,13 +198,30 @@ export const Assignments = () => {
                     />
                   </label>
                 ) : (
-                  <Button 
-                    variant="outline" 
-                    disabled
-                    className="opacity-75 cursor-not-allowed"
-                  >
-                    Upload Locked
-                  </Button>
+                  <div className="flex gap-3">
+                    <Button 
+                      variant="default"
+                      onClick={() => {
+                        const url = URL.createObjectURL(uploadedFile);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = uploadedFile.name;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                      }}
+                    >
+                      Download PPT
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      onClick={() => {
+                        const url = URL.createObjectURL(uploadedFile);
+                        window.open(url, '_blank');
+                      }}
+                    >
+                      View
+                    </Button>
+                  </div>
                 )}
               </div>
             </Card>
