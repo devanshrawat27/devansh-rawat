@@ -27,8 +27,8 @@ export const PreferencesModal = ({ isOpen, onClose }: PreferencesModalProps) => 
 
   useEffect(() => {
     if (isOpen) {
-      const linkedIn = localStorage.getItem("linkedin_link") || "";
-      const github = localStorage.getItem("github_link") || "";
+      const linkedIn = localStorage.getItem("linkedin_link") || "https://linkedin.com/in/devansh-rawat-170649268";
+      const github = localStorage.getItem("github_link") || "https://github.com/devanshrawat";
       const mentorLink = localStorage.getItem("mentor_profile_link") || "";
       setPrefs({ linkedIn, github, mentorLink });
     }

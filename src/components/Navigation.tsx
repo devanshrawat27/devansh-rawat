@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { id: 'videos', label: 'Videos' },
   { id: 'mentor', label: 'Meet My Mentor' },
   { id: 'resume', label: 'Resume' },
+  { id: 'assignments', label: 'Assignments' },
   { id: 'reflection', label: 'Final Reflection' },
 ];
 
