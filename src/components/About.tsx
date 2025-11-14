@@ -62,30 +62,6 @@ export const About = () => {
             </div>
           </Card>
 
-          {/* Highlight Cards */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {HIGHLIGHTS.map((highlight, index) => {
-              const Icon = highlight.icon;
-              return (
-                <Card 
-                  key={index}
-                  className="p-6 hover:shadow-xl transition-shadow duration-300 group"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="text-white" size={32} />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {highlight.description}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

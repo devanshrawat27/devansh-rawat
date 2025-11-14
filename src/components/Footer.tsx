@@ -23,7 +23,7 @@ export const Footer = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-8">
             <a
-              href={localStorage.getItem("linkedin_link") || "#"}
+              href={localStorage.getItem("linkedin_link") || "https://linkedin.com/in/devansh-rawat-170649268"}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent-foreground transition-colors"
@@ -32,7 +32,7 @@ export const Footer = () => {
               <Linkedin size={24} />
             </a>
             <a
-              href={localStorage.getItem("github_link") || "#"}
+              href={localStorage.getItem("github_link") || "https://github.com/devanshrawat"}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent-foreground transition-colors"
