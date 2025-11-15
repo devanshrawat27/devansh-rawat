@@ -75,35 +75,6 @@ export const Hero = ({ onScrollToSection }: HeroProps) => {
               </Button>
               </div>
 
-              {/* Social Icons */}
-              <div className="flex gap-4 pt-4">
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={24} />
-                </a>
-                <a 
-                  href="https://github.com/devanshrawat27" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 hover:scale-110"
-                  aria-label="GitHub"
-                >
-                  <Github size={24} />
-                </a>
-                <a 
-                  href="mailto:contact@example.com"
-                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 hover:scale-110"
-                  aria-label="Email"
-                >
-                  <Mail size={24} />
-                </a>
-              </div>
-
               <p className="text-sm text-white/70 italic pt-2">
                 Currently exploring AI, backend systems, and scalable applications.
               </p>
