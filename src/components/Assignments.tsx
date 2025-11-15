@@ -198,30 +198,15 @@ export const Assignments = () => {
                     />
                   </label>
                 ) : (
-                  <div className="flex gap-3">
-                    <Button 
-                      variant="default"
-                      onClick={() => {
-                        const url = URL.createObjectURL(uploadedFile);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = uploadedFile.name;
-                        a.click();
-                        URL.revokeObjectURL(url);
-                      }}
-                    >
-                      Download PPT
-                    </Button>
-                    <Button 
-                      variant="outline"
-                      onClick={() => {
-                        const url = URL.createObjectURL(uploadedFile);
-                        window.open(url, '_blank');
-                      }}
-                    >
-                      View
-                    </Button>
-                  </div>
+                  <Button 
+                    variant="default"
+                    onClick={() => {
+                      const url = URL.createObjectURL(uploadedFile);
+                      window.open(url, '_blank');
+                    }}
+                  >
+                    View PPT
+                  </Button>
                 )}
               </div>
             </Card>

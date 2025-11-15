@@ -58,15 +58,6 @@ export const Footer = () => {
               </p>
             </div>
           </div>
-
-          {/* Note to Mentor */}
-          <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-lg text-center text-sm">
-            <p className="text-white/90">
-              <strong>Note to Dr. Anubha Pundir:</strong> This portfolio represents not just coursework, 
-              but a transformative personal and professional journey. Thank you for your guidance, patience, 
-              and unwavering belief in your students' potential.
-            </p>
-          </div>
         </div>
       </div>
     </footer>
