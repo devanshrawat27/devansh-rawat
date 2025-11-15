@@ -156,9 +156,10 @@ export const Assignments = () => {
             
             <Card className="p-4 border-2 border-border">
               <iframe
-                src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(window.location.origin + '/Oracle-Corporation.pptx')}`}
+                src="https://docs.google.com/presentation/d/1lVd28Y-zdfWVDqFVDjknAax4Ix8pzEJd/embed?start=false&loop=false&delayms=3000"
                 className="w-full h-[600px] rounded-lg"
                 title="Oracle Corporation Presentation"
+                allowFullScreen
               />
             </Card>
           </div>
