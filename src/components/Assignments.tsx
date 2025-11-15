@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { FileText, Briefcase, ChevronDown, Upload } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { FileText, Briefcase, ChevronDown } from "lucide-react";
 
 const flashcardsData = [
   {
@@ -64,16 +62,9 @@ const flashcardsData = [
 
 export const Assignments = () => {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
   const toggleCard = (id: number) => {
     setExpandedCard(expandedCard === id ? null : id);
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setUploadedFile(e.target.files[0]);
-    }
   };
 
   return (
@@ -163,52 +154,12 @@ export const Assignments = () => {
               We selected a real company, researched its background, culture, and business model, and created a presentation based on our findings.
             </p>
             
-            <Card className={`p-8 max-w-md mx-auto border-2 transition-all duration-300 ${
-              uploadedFile ? 'border-primary bg-primary/5' : 'border-dashed border-border hover:border-accent'
-            }`}>
-              <div className="flex flex-col items-center justify-center">
-                <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4 ${
-                  uploadedFile 
-                    ? 'bg-gradient-to-br from-primary to-primary/70' 
-                    : 'bg-gradient-to-br from-accent to-accent/70'
-                }`}>
-                  <Briefcase className="text-white" size={40} />
-                </div>
-                <p className="text-lg font-semibold text-foreground mb-2">
-                  {uploadedFile ? uploadedFile.name : "Upload PPT"}
-                </p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {uploadedFile ? "✓ Assignment submitted successfully" : "Click to upload your presentation"}
-                </p>
-                
-                {!uploadedFile ? (
-                  <label htmlFor="ppt-upload" className="cursor-pointer">
-                    <Button variant="default" className="relative" asChild>
-                      <span>
-                        <Upload className="mr-2" size={16} />
-                        Choose File
-                      </span>
-                    </Button>
-                    <Input
-                      id="ppt-upload"
-                      type="file"
-                      accept=".ppt,.pptx,.pdf"
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                  </label>
-                ) : (
-                  <Button 
-                    variant="default"
-                    onClick={() => {
-                      const url = URL.createObjectURL(uploadedFile);
-                      window.open(url, '_blank');
-                    }}
-                  >
-                    View PPT
-                  </Button>
-                )}
-              </div>
+            <Card className="p-4 border-2 border-border">
+              <iframe
+                src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(window.location.origin + '/Oracle-Corporation.pptx')}`}
+                className="w-full h-[600px] rounded-lg"
+                title="Oracle Corporation Presentation"
+              />
             </Card>
           </div>
         </div>
