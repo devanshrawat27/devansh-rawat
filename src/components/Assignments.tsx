@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { FileText, Briefcase, ChevronDown } from "lucide-react";
+import { FileText, ChevronDown } from "lucide-react";
 
 const flashcardsData = [
   {
@@ -80,7 +80,7 @@ export const Assignments = () => {
           </div>
 
           {/* Flash Card Activity */}
-          <div className="mb-16">
+          <div>
             <div className="flex items-center gap-3 mb-6">
               <FileText className="text-primary" size={32} />
               <h3 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -142,27 +142,6 @@ export const Assignments = () => {
             </div>
           </div>
 
-          {/* Corporate Assignment */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <Briefcase className="text-accent" size={32} />
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                Corporate Assignment
-              </h3>
-            </div>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              We selected a real company, researched its background, culture, and business model, and created a presentation based on our findings.
-            </p>
-            
-            <Card className="p-4 border-2 border-border">
-              <iframe
-                src="https://docs.google.com/presentation/d/1lVd28Y-zdfWVDqFVDjknAax4Ix8pzEJd/embed?start=false&loop=false&delayms=3000"
-                className="w-full h-[600px] rounded-lg"
-                title="Oracle Corporation Presentation"
-                allowFullScreen
-              />
-            </Card>
-          </div>
         </div>
       </div>
     </section>
