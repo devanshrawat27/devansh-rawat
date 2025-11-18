@@ -78,6 +78,15 @@ export const Videos = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Video Gallery
             </h2>
+
+            {/* 👉 ADDED BUTTON HERE */}
+            <Button
+              onClick={() => window.open("https://learniverse-gallery.lovable.app", "_blank")}
+              className="mb-6 bg-primary text-white hover:bg-primary/80"
+            >
+              Open Learniverse Gallery
+            </Button>
+
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Visual documentation of my journey through each session and final reflection
@@ -176,7 +185,9 @@ export const Videos = () => {
                     className="absolute inset-0 flex flex-col items-center justify-center text-primary"
                   >
                     <Play size={64} />
-                    <span className="mt-4 text-xl font-medium">Add Final Reflection Video</span>
+                    <span className="mt-4 text-xl font-medium">
+                      Add Final Reflection Video
+                    </span>
                   </button>
                 )}
               </div>
